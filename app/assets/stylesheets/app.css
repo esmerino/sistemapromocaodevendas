@@ -1,0 +1,19 @@
+button{
+  list-style: none;
+}
+.container{
+  border: 1px solid #ccc;
+}
+.well{
+  background-color: #f3f3f3;  
+}
+.section-menu{
+  background-color: #fff;
+  border: 1px solid #ddd;
+  /*border: 0px 1px 1px 1px solid #000;*/
+  margin: -21px 0px 0px 0px;
+  padding: 10px;
+}
+.nav-tabs .active a{
+  background-color: #fff;
+}

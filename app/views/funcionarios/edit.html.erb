@@ -1,0 +1,19 @@
+<script type="text/javascript">
+var reinit = function(){
+	$.getJSON("http://192.168.1.11:3000/funcionario/reinit",function(response){
+		alert(response)
+	});	
+}
+</script>
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#">Edição</a>
+  </li>
+</ul>
+<div class="section-menu">
+	<%= render 'form' %>
+	<%= link_to 'Cancelar', funcionarios_path, :class=> "btn" %>
+	<button onclick="reinit()" class="btn btn-warning">Reiniciar senha</button>
+</div>
+
+

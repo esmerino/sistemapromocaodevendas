@@ -1,0 +1,41 @@
+<script type="text/javascript">
+var consultar = function(){
+      console.log("get");
+      $.get('http://www.sistemapromotordevendas.herokuapp.com/consulta/'+$('#p_itvl').val()+'/'+$('#s_itvl').val(),function(response){
+        $.each(response,function(id){
+          // alert(response[0].id);
+          $("#result_div").html('<td>'+response[id].id+'</td>'
+            +'<td>'+response[id].funcionario_id+'</td>'
+            +'<td>'+response[id].empresa_id+'</td>'
+            +'<td>'+response[id].data_hora_inicio+'</td>'
+            +'<td>'+response[id].data_hora_fim+'</td>'
+            +'<td>mapa</td>');
+            });
+          });
+};
+</script>
+<ul class="nav nav-tabs">
+  <li class="active">
+    <a href="#">Listagem de visitas</a>
+  </li>
+  <li>
+    <a href="#">Visualizar no mapa</a>
+  </li>
+</ul>
+<div class="section-menu">
+Data inicio: <input type="text" class="calendario" id="p_itvl" />   Data final: <input type="text" class="calendario" id="s_itvl"/>  <a class="btn" onclick="javascript:consultar();" id="btn-busca-filtro"style="margin-top:-1%;">Buscar</a>
+
+<table class="table table-striped table-bordered table-condensed table-hover" >
+  <tr>
+    <th>Cod</th>
+    <th>Funcionário</th>
+    <th>Empresa</th>
+    <th>data_hora_inicio</th>
+    <th>data_hora_fim</th>
+    <th>mapa</th>
+  </tr>
+
+  <tr id="result_div">
+  </tr>
+</table>
+</div>

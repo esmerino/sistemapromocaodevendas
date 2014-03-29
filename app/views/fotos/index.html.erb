@@ -1,0 +1,27 @@
+<h1>Listing fotos</h1>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>id visita</th>
+    <th>Avatar</th>
+    <th>Hora</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fotos.each do |foto| %>
+  <tr>
+    <td><%= foto.visitum_id%></td>
+    <td><%= image_tag foto.avatar, :class => "span3" %></td>
+    <td><%= foto.hora %></td>
+    <td><%= link_to 'Show', foto %></td>
+    <td><%= link_to 'Edit', edit_foto_path(foto) %></td>
+    <td><%= link_to 'Destroy', foto, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Foto', new_foto_path %>

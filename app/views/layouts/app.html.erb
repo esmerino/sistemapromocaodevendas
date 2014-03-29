@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sistemapromotordevendas</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src='https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places'></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
+<style type="text/css">
+</style>
+</head>
+<body>
+
+<div class="navbar navbar-inverse">
+  <div class="navbar-inner">
+    <%= link_to 'Administração | Promotor de Venda', root_path,:class => 'brand'%>
+    <div class="nav-collapse">
+      <ul class="nav pull-right">
+        <li class="divider-vertical"></li>
+        <ul class="nav nav-pills">
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <%= '<i class="icon-user"></i> '.html_safe+current_user.nome %>
+                <b class="caret"></b>
+              </a>
+            <ul class="dropdown-menu">
+              <li class="divider"></li>
+               <%= content_tag :li, link_to("sair",destroy_user_session_path, :method => Devise.sign_out_via) %>
+            </ul>
+          </li>
+        </ul>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+      <ul class="nav nav-list well menu" >
+        <li class="nav-header"><strong><h4>Painel</h4></strong></li>
+        <li class="divider"></li>
+          <li class="nav-header">Visitas</li>
+          <li><%= link_to '<i class="icon-chevron-right"></i>'.html_safe+'Relatórios', visita_path%></li>
+          <li class="nav-header">Funcionários</li>
+          <li><%= link_to '<i class="icon-chevron-right"></i>'.html_safe+'Listar funcionários', funcionarios_path%></li>
+          <li><%= link_to '<i class="icon-chevron-right"></i>'.html_safe+'Cadastrar novo funcionário', new_funcionario_path%></li>
+          <li class="nav-header">Empresas</li>
+          <li><%= link_to '<i class="icon-chevron-right"></i>'.html_safe+'Listar empresas', empresas_path%></li>
+          <li><%= link_to '<i class="icon-chevron-right"></i>'.html_safe+'Cadastrar nova empresa', new_empresa_path %></li>
+      </ul>
+    </div>
+
+    <div class="span10">
+      <%= yield %>
+    </div>
+  </div>
+</div>
+</body>
+</html>
