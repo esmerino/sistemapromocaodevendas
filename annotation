@@ -1,0 +1,14 @@
+-> so mandar dados com validação
+-> sempre verificar quando subir dados da visita se o funcionario relacionado existe ainda
+-> validação no nome da empresa
+-> botao para reiniar senha
+
+Deploy
+
+ssh root@107.170.120.156
+adduser deployer --ingroup root
+exit
+cap deploy:install
+cap deploy:setup
+cap deploy:cold
+cap nginx:start
